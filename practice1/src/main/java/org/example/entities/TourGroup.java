@@ -4,13 +4,13 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tour_group")
-public class TourGroup {
+public class TourGroup extends BaseEntity {
     private Passenger passenger;
-    private Tour tour;
+    private Trip trip;
 
 
     @ManyToOne
-    @JoinColumn(name = "id_passenger")
+    @JoinColumn(name = "id_passenger", referencedColumnName = "id")
     public Passenger getPassenger() {
         return passenger;
     }
@@ -20,11 +20,12 @@ public class TourGroup {
 
 
     @ManyToOne
-    @JoinColumn(name = "id_tour")
-    public Tour getTour() {
-        return tour;
+    @JoinColumn(name = "id_trip", referencedColumnName = "id")
+    public Trip getTrip() {
+        return trip;
     }
-    public void setTour(Tour tour) {
-        this.tour = tour;
+
+    public void setTrip(Trip trip) {
+        this.trip = trip;
     }
 }

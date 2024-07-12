@@ -9,10 +9,11 @@ import java.time.LocalDate;
 public class Tour extends BaseEntity {
     private String nameTour;
     private String description;
-    private LocalDate dateTour;
     private String itinerary;
     private int lengthTour;
     private int price;
+    private String destination;
+
 
 
 
@@ -35,13 +36,6 @@ public class Tour extends BaseEntity {
 
 
 
-    @Column(name = "date_tour")
-    public LocalDate getDateTour() {
-        return dateTour;
-    }
-    public void setDateTour(LocalDate dateTour) {
-        this.dateTour = dateTour;
-    }
 
     @Column(name = "itinerary")
     public String getItinerary() {
@@ -69,6 +63,14 @@ public class Tour extends BaseEntity {
     }
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    @Column(name = "destination")
+    public String getDestination() {
+        return destination;
+    }
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 }
 
