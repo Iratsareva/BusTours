@@ -8,7 +8,14 @@ public class TourGroup extends BaseEntity {
     private Passenger passenger;
     private Trip trip;
 
+    public TourGroup(Passenger passenger, Trip trip) {
+        this.passenger = passenger;
+        this.trip = trip;
+    }
 
+    protected TourGroup(){}
+
+    @Id
     @ManyToOne
     @JoinColumn(name = "id_passenger", referencedColumnName = "id")
     public Passenger getPassenger() {

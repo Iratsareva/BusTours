@@ -4,6 +4,7 @@ package org.example.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity @Table(name = "tour")
 public class Tour extends BaseEntity {
@@ -14,9 +15,19 @@ public class Tour extends BaseEntity {
     private int price;
     private String destination;
 
+    private Set<Trip> trips;
 
 
+    public Tour(String nameTour, String description, String itinerary, int lengthTour, int price, String destination) {
+        this.nameTour = nameTour;
+        this.description = description;
+        this.itinerary = itinerary;
+        this.lengthTour = lengthTour;
+        this.price = price;
+        this.destination = destination;
+    }
 
+    protected Tour(){}
 
     @Column(name = "name_tour")
     public String getNameTour() {
@@ -71,6 +82,16 @@ public class Tour extends BaseEntity {
     }
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    @OneToMany(mappedBy = "tour", targetEntity = Trip.class,
+    fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public Set<Trip> getTrips() {
+        return trips;
+    }
+
+    public void setTrips(Set<Trip> trips) {
+        this.trips = trips;
     }
 }
 

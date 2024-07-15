@@ -1,9 +1,11 @@
 package org.example.entities;
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 
-@Entity @Table(name = "bus")
+@Entity
+@Table(name = "bus")
 public class Bus extends BaseEntity {
     private String mark;
     private String numberBus;
@@ -11,10 +13,18 @@ public class Bus extends BaseEntity {
     private String classBus;
     private LocalDate year;
 
+    private Set<Trip> trips;
 
 
+    public Bus(String mark, String numberBus, Integer numberSeats, String classBus, LocalDate year) {
+        this.mark = mark;
+        this.numberBus = numberBus;
+        this.numberSeats = numberSeats;
+        this.classBus = classBus;
+        this.year = year;
+    }
 
-
+    protected Bus(){}
 
 
     @Column(name = "mark")
@@ -59,5 +69,16 @@ public class Bus extends BaseEntity {
     }
     public void setYear(LocalDate year) {
         this.year = year;
+    }
+
+
+    @OneToMany(mappedBy = "bus", targetEntity = Trip.class,
+            fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public Set<Trip> getTrips() {
+        return trips;
+    }
+
+    public void setTrips(Set<Trip> trips) {
+        this.trips = trips;
     }
 }

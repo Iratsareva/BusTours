@@ -4,6 +4,7 @@ package org.example.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity @Table(name = "driver")
 public class Driver extends BaseEntity{
@@ -16,7 +17,20 @@ public class Driver extends BaseEntity{
     private LocalDate dateStartDriverLicense;
     private String category;
 
+    private Set<Trip> trips;
 
+    public Driver(String name, String surname, String patronymic, LocalDate birthday, int passport, int driverLicense, LocalDate dateStartDriverLicense, String category) {
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.birthday = birthday;
+        this.passport = passport;
+        this.driverLicense = driverLicense;
+        this.dateStartDriverLicense = dateStartDriverLicense;
+        this.category = category;
+    }
+
+    protected Driver(){}
 
     @Column(name = "name")
     public String getName() {
@@ -85,5 +99,15 @@ public class Driver extends BaseEntity{
     }
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    @OneToMany(mappedBy = "driver", targetEntity = Trip.class,
+            fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public Set<Trip> getTrips() {
+        return trips;
+    }
+
+    public void setTrips(Set<Trip> trips) {
+        this.trips = trips;
     }
 }

@@ -3,6 +3,7 @@ package org.example.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity @Table(name = "trip")
 public class Trip extends BaseEntity {
@@ -12,7 +13,20 @@ public class Trip extends BaseEntity {
     private LocalDate startDate;
     private LocalDate endDate;
 
+    private TripStatus tripStatus;
 
+    private Set<TourGroup> tourGroups;
+
+    public Trip(Tour tour, Bus bus, Driver driver, LocalDate startDate, LocalDate endDate, TripStatus tripStatus) {
+        this.tour = tour;
+        this.bus = bus;
+        this.driver = driver;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.tripStatus = tripStatus;
+    }
+
+    protected Trip(){}
 
     @ManyToOne
     @JoinColumn(name = "id_tour", referencedColumnName = "id")
@@ -55,5 +69,24 @@ public class Trip extends BaseEntity {
     }
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    public TripStatus getTripStatus() {
+        return tripStatus;
+    }
+
+    public void setTripStatus(TripStatus tripStatus) {
+        this.tripStatus = tripStatus;
+    }
+
+    @OneToMany(mappedBy = "trip", targetEntity = TourGroup.class,
+            fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public Set<TourGroup> getTourGroups() {
+        return tourGroups;
+    }
+    public void setTourGroups(Set<TourGroup> tourGroups) {
+        this.tourGroups = tourGroups;
     }
 }

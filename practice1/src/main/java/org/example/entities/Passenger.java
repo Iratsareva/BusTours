@@ -3,6 +3,7 @@ package org.example.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity @Table(name = "passenger")
 public class Passenger extends BaseEntity{
@@ -12,7 +13,17 @@ public class Passenger extends BaseEntity{
     private LocalDate birthday;
     private String passportBirthCertificate;
 
+    private Set<TourGroup> tourGroups;
 
+    public Passenger(String name, String surname, String patronymic, LocalDate birthday, String passportBirthCertificate) {
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.birthday = birthday;
+        this.passportBirthCertificate = passportBirthCertificate;
+    }
+
+    protected Passenger(){}
 
     @Column(name = "name")
     public String getName() {
@@ -56,5 +67,15 @@ public class Passenger extends BaseEntity{
     }
     public void setPassportBirthCertificate(String passportBirthCertificate) {
         this.passportBirthCertificate = passportBirthCertificate;
+    }
+
+
+    @OneToMany(mappedBy = "passenger", targetEntity = TourGroup.class,
+            fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public Set<TourGroup> getTourGroups() {
+        return tourGroups;
+    }
+    public void setTourGroups(Set<TourGroup> tourGroups) {
+        this.tourGroups = tourGroups;
     }
 }
