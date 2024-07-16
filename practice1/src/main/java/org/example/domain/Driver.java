@@ -1,4 +1,4 @@
-package org.example.entities;
+package org.example.domain;
 
 
 import jakarta.persistence.*;
@@ -12,14 +12,14 @@ public class Driver extends BaseEntity{
     private String surname;
     private String patronymic;
     private LocalDate birthday;
-    private int passport;
-    private int driverLicense;
+    private String passport;
+    private String driverLicense;
     private LocalDate dateStartDriverLicense;
     private String category;
 
     private Set<Trip> trips;
 
-    public Driver(String name, String surname, String patronymic, LocalDate birthday, int passport, int driverLicense, LocalDate dateStartDriverLicense, String category) {
+    public Driver(String name, String surname, String patronymic, LocalDate birthday, String passport, String driverLicense, LocalDate dateStartDriverLicense, String category) {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
@@ -66,20 +66,20 @@ public class Driver extends BaseEntity{
         this.birthday = birthday;
     }
 
-    @Column(name = "passport")
-    public int getPassport() {
+    @Column(name = "passport", length = 10)
+    public String getPassport() {
         return passport;
     }
-    public void setPassport(int passport) {
+    public void setPassport(String passport) {
         this.passport = passport;
     }
 
 
-    @Column(name = "driver_license")
-    public int getDriverLicense() {
+    @Column(name = "driver_license",length = 10)
+    public String getDriverLicense() {
         return driverLicense;
     }
-    public void setDriverLicense(int driverLicense) {
+    public void setDriverLicense(String driverLicense) {
         this.driverLicense = driverLicense;
     }
 

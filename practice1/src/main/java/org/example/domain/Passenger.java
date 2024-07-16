@@ -1,4 +1,4 @@
-package org.example.entities;
+package org.example.domain;
 
 import jakarta.persistence.*;
 
@@ -61,7 +61,7 @@ public class Passenger extends BaseEntity{
     }
 
 
-    @Column(name = "passport_birth_certificate")
+    @Column(name = "passport_birth_certificate", length = 10)
     public String getPassportBirthCertificate() {
         return passportBirthCertificate;
     }
