@@ -1,10 +1,7 @@
 package org.example.controller;
 
-import org.example.domain.Driver;
-import org.example.dto.BusDTO;
 import org.example.dto.DriverDTO;
 import org.example.dto.TripDTO;
-import org.example.services.BusService;
 import org.example.services.TripService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,5 +28,4 @@ public class TripController {
     public List<DriverDTO> findDriverToTrip(@PathVariable TripDTO tripDTO){
         return tripService.findDriverToTrip(tripDTO);
     }
-
 }

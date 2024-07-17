@@ -1,6 +1,5 @@
 package org.example.controller;
 
-import org.example.dto.BusDTO;
 import org.example.dto.DriverDTO;
 import org.example.services.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;

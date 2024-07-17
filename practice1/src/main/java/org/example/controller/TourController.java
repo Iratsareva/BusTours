@@ -1,11 +1,8 @@
 package org.example.controller;
 
-import org.example.domain.Tour;
-import org.example.dto.BusDTO;
 import org.example.dto.PassengerDTO;
 import org.example.dto.TourDTO;
 import org.example.dto.TourGroupDTO;
-import org.example.services.BusService;
 import org.example.services.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

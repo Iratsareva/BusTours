@@ -1,7 +1,6 @@
 package org.example.controller;
 
 
-import org.example.domain.Bus;
 import org.example.dto.BusDTO;
 import org.example.services.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
