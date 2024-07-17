@@ -17,9 +17,11 @@ public class DriverRepositoryImpl extends AbstractRepository<Driver> implements 
     private EntityManager entityManager;
 
 
-    @Override
+
+
     //Найти водителя который свободен для рейса c конкретным id
-    public List<Driver> findDriversByTripStartDate(Integer tripId) {
+    @Override
+    public List<Driver> findDriversByTripId(Integer tripId) {
         String subQuery = "select t.startDate from Trip t where t.id = :tripId";
         TypedQuery<Driver> query = entityManager.createQuery(
                         "select d from Driver d " +

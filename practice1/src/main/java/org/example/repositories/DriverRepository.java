@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface DriverRepository  {
 
-    List<Driver> findDriversByTripStartDate(Integer tripId);
+    List<Driver> findDriversByTripId(Integer tripId);
 
     void create(Driver driver);
     Driver findById(Class<Driver> driverClass, int id);

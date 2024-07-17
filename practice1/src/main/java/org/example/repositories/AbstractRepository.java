@@ -3,13 +3,15 @@ package org.example.repositories;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
+import org.example.domain.Driver;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public abstract class AbstractRepository<T> {
 
     @PersistenceContext
-    private EntityManager entityManager;
+    protected EntityManager entityManager;
+
 
     @Transactional
     public void create(T entity){
@@ -30,6 +32,5 @@ public abstract class AbstractRepository<T> {
     public void delete (T entity){
         entityManager.remove(entity);
     }
-
 
 }

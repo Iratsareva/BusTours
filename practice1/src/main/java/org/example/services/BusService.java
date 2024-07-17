@@ -1,10 +1,11 @@
 package org.example.services;
 
 import org.example.domain.Bus;
+import org.example.dto.BusDTO;
 
 public interface BusService {
-    void addBus (Bus bus);
-    Bus getBusById(int id);
+    void addBus (BusDTO busDTO);
+    BusDTO getBusById(int id);
 
 
 }

@@ -18,7 +18,7 @@ public class TourRepositoryImpl extends AbstractRepository<Tour> implements Tour
 
     //Найти похожие туры на основе посещенных
     @Override
-    public List<Tour> findToursByPassengerId(String passengerId) {
+    public List<Tour> findToursByPassengerId(Integer passengerId) {
         String subQuery = "from TourGroup tg " +
                 "join tg.trip t " +
                 "where tg.passenger.id = :passengerId";
