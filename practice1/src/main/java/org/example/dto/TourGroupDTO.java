@@ -4,13 +4,24 @@ import org.example.domain.Passenger;
 import org.example.domain.Trip;
 
 public class TourGroupDTO {
+
+    public Integer id;
     public int passengerId;
     public int tripId;
 
     public TourGroupDTO(){}
-    public TourGroupDTO(int passengerId, int tripId) {
+    public TourGroupDTO(Integer id, int passengerId, int tripId) {
+        this.id = id;
         this.passengerId = passengerId;
         this.tripId = tripId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public int getPassengerId() {

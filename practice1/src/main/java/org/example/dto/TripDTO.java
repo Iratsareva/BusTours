@@ -3,23 +3,29 @@ package org.example.dto;
 import org.example.domain.Bus;
 import org.example.domain.Driver;
 import org.example.domain.Tour;
+import org.example.domain.TripStatus;
 
 import java.time.LocalDate;
 
 public class TripDTO {
+    public int id;
     public int tourId;
     public int busId;
     public int driverId;
     public LocalDate startDate;
     public LocalDate endDate;
 
+    public TripStatus tripStatus;
+
     public TripDTO(){}
-    public TripDTO(int tourId, int busId, int driverId, LocalDate startDate, LocalDate endDate) {
+    public TripDTO(int id, int tourId, int busId, int driverId, LocalDate startDate, LocalDate endDate, TripStatus tripStatus) {
+        this.id = id;
         this.tourId = tourId;
         this.busId = busId;
         this.driverId = driverId;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.tripStatus = tripStatus;
     }
 
     public int getTourId() {
@@ -60,5 +66,21 @@ public class TripDTO {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    public TripStatus getTripStatus() {
+        return tripStatus;
+    }
+
+    public void setTripStatus(TripStatus tripStatus) {
+        this.tripStatus = tripStatus;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

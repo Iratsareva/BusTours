@@ -1,8 +1,5 @@
 package org.example.services;
 
-import org.example.domain.Passenger;
-import org.example.domain.Tour;
-import org.example.domain.TourGroup;
 import org.example.dto.PassengerDTO;
 import org.example.dto.TourDTO;
 import org.example.dto.TourGroupDTO;

@@ -1,7 +1,5 @@
 package org.example.services;
 
-import org.example.domain.Driver;
-import org.example.domain.Trip;
 import org.example.dto.DriverDTO;
 import org.example.dto.TripDTO;
 

@@ -2,18 +2,30 @@ package org.example.domain;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "tour_group")
-public class TourGroup extends BaseEntity {
+@Entity @Table(name = "tour_group")
+public class TourGroup  {
+
+    private int id;
     private Passenger passenger;
     private Trip trip;
 
-    public TourGroup(Passenger passenger, Trip trip) {
+    public TourGroup(Integer id, Passenger passenger, Trip trip) {
+        this.id = id;
         this.passenger = passenger;
         this.trip = trip;
     }
 
     protected TourGroup(){}
+
+    @Id
+    @Column(name = "id")
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     @Id
     @ManyToOne

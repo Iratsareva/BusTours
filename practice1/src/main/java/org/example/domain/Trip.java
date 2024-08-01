@@ -7,6 +7,7 @@ import java.util.Set;
 
 @Entity @Table(name = "trip")
 public class Trip extends BaseEntity {
+
     private Tour tour;
     private Bus bus;
     private Driver driver;
@@ -80,6 +81,9 @@ public class Trip extends BaseEntity {
     public void setTripStatus(TripStatus tripStatus) {
         this.tripStatus = tripStatus;
     }
+
+
+
 
     @OneToMany(mappedBy = "trip", targetEntity = TourGroup.class,
             fetch = FetchType.LAZY, cascade = CascadeType.ALL)

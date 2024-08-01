@@ -25,7 +25,9 @@ public class TourGroupServiceImpl implements TourGroupService {
 
     @Override
     public TourGroupDTO getTourGroupById(int id) {
-        TourGroup tg = tourGroupRepository.findById(TourGroup.class, id);
+
+        TourGroup tg = tourGroupRepository.findById(TourGroup.class,id);
+
         return modelMapper.map(tg, TourGroupDTO.class);
     }
 }

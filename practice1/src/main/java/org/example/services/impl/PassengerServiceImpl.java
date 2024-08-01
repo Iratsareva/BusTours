@@ -1,7 +1,6 @@
 package org.example.services.impl;
 
 import org.example.domain.Passenger;
-import org.example.dto.BusDTO;
 import org.example.dto.PassengerDTO;
 import org.example.repositories.PassengerRepository;
 import org.example.services.PassengerService;

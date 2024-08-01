@@ -8,7 +8,6 @@ import org.example.repositories.AbstractRepository;
 import org.example.repositories.DriverRepository;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -34,8 +33,4 @@ public class DriverRepositoryImpl extends AbstractRepository<Driver> implements 
                                 subQuery + "))", Driver.class);
         return query.setParameter("tripId", tripId).getResultList();
     }
-
-
-
-
 }

@@ -19,7 +19,6 @@ public class BusServiceImpl implements BusService {
     public void addBus(BusDTO busDTO) {
         Bus bus = modelMapper.map(busDTO, Bus.class);
         busRepository.create(bus);
-//        return modelMapper.map(bus);
     }
 
     @Override

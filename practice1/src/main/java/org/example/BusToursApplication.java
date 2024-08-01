@@ -7,6 +7,5 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BusToursApplication {
     public static void main(String[] args) {
         SpringApplication.run(BusToursApplication.class,args);
-
     }
 }

@@ -3,7 +3,6 @@ package org.example.services.impl;
 import org.example.domain.Passenger;
 import org.example.domain.Tour;
 import org.example.domain.TourGroup;
-import org.example.dto.BusDTO;
 import org.example.dto.PassengerDTO;
 import org.example.dto.TourDTO;
 import org.example.dto.TourGroupDTO;
@@ -29,6 +28,7 @@ public class TourServiceImpl implements TourService {
         Tour tour = modelMapper.map(tourDTO, Tour.class );
         tourRepository.create(tour);
     }
+
 
     @Override
     public TourDTO getTourById(int id) {
