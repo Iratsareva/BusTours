@@ -12,14 +12,26 @@ public class DriverController {
     @Autowired
     private DriverService driverService;
 
-    @PostMapping("/driver/add")
-    void addDriver(@RequestBody DriverDTO driverDTO){
-        driverService.addDriver(driverDTO);
+    @PostMapping("/add")
+    public DriverDTO addDriver(@RequestBody DriverDTO driverDTO){
+        return driverService.addDriver(driverDTO);
     }
 
     @GetMapping("/{id}")
     public DriverDTO getDriverById (@PathVariable int id){
         return driverService.getDriverById(id);
     }
+
+
+    @GetMapping("/all")
+    Iterable<DriverDTO> getAll() {
+        return driverService.findAll();
+    }
+
+    @GetMapping("/find/{id}")
+    Iterable<DriverDTO> findFreeDriversByTripId (@PathVariable int id){
+        return driverService.findFreeDriversByTripId(id);
+    }
+
 
 }

@@ -14,13 +14,19 @@ public class BusController {
     private BusService busService;
 
     @PostMapping("/add")
-    void addBus(@RequestBody BusDTO busDTO){
-        busService.addBus(busDTO);
+    public BusDTO addBus(@RequestBody BusDTO busDTO){
+        return busService.addBus(busDTO);
     }
 
     @GetMapping("/{id}")
     public BusDTO getBusById (@PathVariable int id){
         return busService.getBusById(id);
+    }
+
+
+    @GetMapping("/all")
+    Iterable<BusDTO> getAll() {
+        return busService.findAll();
     }
 
 

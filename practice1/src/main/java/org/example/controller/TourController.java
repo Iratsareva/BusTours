@@ -1,8 +1,7 @@
 package org.example.controller;
 
-import org.example.dto.PassengerDTO;
 import org.example.dto.TourDTO;
-import org.example.dto.TourGroupDTO;
+import org.example.dto.TripDTO;
 import org.example.services.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +15,8 @@ public class TourController {
     private TourService tourService;
 
     @PostMapping("/add")
-    void addTour(@RequestBody TourDTO tourDTO){
-        tourService.addTour(tourDTO);
+    public TourDTO addTour(@RequestBody TourDTO tourDTO){
+        return tourService.addTour(tourDTO);
     }
 
     @GetMapping("/{id}")
@@ -25,15 +24,30 @@ public class TourController {
         return tourService.getTourById(id);
     }
 
-
-    @GetMapping("/recommendation")
-    public List<TourDTO> getRecommendationsTour(@PathVariable PassengerDTO passengerDTO){
-        return tourService.getRecommendationsTour(passengerDTO);
+    @GetMapping("/all")
+    Iterable<TourDTO> getAll() {
+        return tourService.findAll();
     }
 
 
-    @GetMapping("/tourTourGroup")
-    public List<TourDTO> getTourForTourGroup(@PathVariable TourGroupDTO tourGroupDTO){
-        return tourService.getTourForTourGroup(tourGroupDTO);
+    @GetMapping("/find")
+    Iterable<TripDTO> findTourByDestination (@RequestParam String destination,
+                                             @RequestParam Integer numberPassengers ){
+
+        //изменить тур на трип
+        List<TripDTO> tripDTOS = tourService.findTourByParameters(destination,numberPassengers );
+
+        return tripDTOS;
     }
+
+//    @GetMapping("/recommendation")
+//    public List<TourDTO> getRecommendationsTour(@PathVariable PassengerDTO passengerDTO){
+//        return tourService.getRecommendationsTour(passengerDTO);
+//    }
+//
+//
+//    @GetMapping("/tourTourGroup")
+//    public List<TourDTO> getTourForTourGroup(@PathVariable TourGroupDTO tourGroupDTO){
+//        return tourService.getTourForTourGroup(tourGroupDTO);
+//    }
 }

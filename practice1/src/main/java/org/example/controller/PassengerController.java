@@ -12,9 +12,9 @@ public class PassengerController {
     @Autowired
     private PassengerService passengerService;
 
-    @PostMapping("/passenger/add")
-    void addPassenger(@RequestBody PassengerDTO passengerDTO){
-        passengerService.addPassenger(passengerDTO);
+    @PostMapping("/add")
+    public PassengerDTO addPassenger(@RequestBody PassengerDTO passengerDTO){
+        return passengerService.addPassenger(passengerDTO);
     }
 
     @GetMapping("/{id}")
@@ -22,4 +22,8 @@ public class PassengerController {
         return passengerService.getPassengerById(id);
     }
 
+    @GetMapping("/all")
+    Iterable<PassengerDTO> getAll() {
+        return passengerService.findAll();
+    }
 }
