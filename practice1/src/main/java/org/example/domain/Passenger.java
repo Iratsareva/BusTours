@@ -13,7 +13,7 @@ public class Passenger extends BaseEntity{
     private LocalDate birthday;
     private String passportBirthCertificate;
 
-    private Set<TourGroup> tourGroups;
+    private Set<Ticket> tickets;
 
     public Passenger(String name, String surname, String patronymic, LocalDate birthday, String passportBirthCertificate) {
         this.name = name;
@@ -70,12 +70,12 @@ public class Passenger extends BaseEntity{
     }
 
 
-    @OneToMany(mappedBy = "passenger", targetEntity = TourGroup.class,
+    @OneToMany(mappedBy = "passenger", targetEntity = Ticket.class,
             fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    public Set<TourGroup> getTourGroups() {
-        return tourGroups;
+    public Set<Ticket> getTickets() {
+        return tickets;
     }
-    public void setTourGroups(Set<TourGroup> tourGroups) {
-        this.tourGroups = tourGroups;
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }

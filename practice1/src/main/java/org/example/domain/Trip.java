@@ -16,7 +16,7 @@ public class Trip extends BaseEntity {
 
     private TripStatus tripStatus;
 
-    private Set<TourGroup> tourGroups;
+    private Set<Ticket> tickets;
 
     public Trip(Tour tour, Bus bus, Driver driver, LocalDate startDate, LocalDate endDate, TripStatus tripStatus) {
         this.tour = tour;
@@ -85,12 +85,12 @@ public class Trip extends BaseEntity {
 
 
 
-    @OneToMany(mappedBy = "trip", targetEntity = TourGroup.class,
+    @OneToMany(mappedBy = "trip", targetEntity = Ticket.class,
             fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    public Set<TourGroup> getTourGroups() {
-        return tourGroups;
+    public Set<Ticket> getTickets() {
+        return tickets;
     }
-    public void setTourGroups(Set<TourGroup> tourGroups) {
-        this.tourGroups = tourGroups;
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }
