@@ -8,11 +8,14 @@ import java.util.List;
 @Repository
 public interface TourRepository  {
 
-    List<Tour> findToursByPassengerId(Integer passengerId);
-    List<Tour> findToursByTourGroup(Integer children, Integer notChildren);
+//    List<Tour> findToursByPassengerId(Integer passengerId);
+//    List<Tour> findToursByTourGroup(Integer children, Integer notChildren);
 
-    void create(Tour tour);
+    Tour create(Tour tour);
     Tour findById(Class<Tour> tourClass, int id);
-    Tour update (Tour tour);
+    List<Tour> getAll(Class<Tour> tourClass);
+    List<Tour> findTourByDestination(String destination);
+    Tour findTourByTrip (int idTrip);
+
 
 }

@@ -3,15 +3,16 @@ package org.example.repositories;
 
 import org.example.domain.Driver;
 import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 @Repository
 public interface DriverRepository  {
 
-    List<Driver> findDriversByTripId(Integer tripId);
+    Driver findDriverByTrip(Integer tripId);
 
-    void create(Driver driver);
+    Driver create(Driver driver);
     Driver findById(Class<Driver> driverClass, int id);
-    Driver update(Driver driver);
+    List<Driver> getAll(Class<Driver> driverClass);
 
 }

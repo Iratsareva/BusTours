@@ -2,9 +2,11 @@ package org.example.repositories;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
-import org.example.domain.Driver;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public abstract class AbstractRepository<T> {
@@ -14,8 +16,9 @@ public abstract class AbstractRepository<T> {
 
 
     @Transactional
-    public void create(T entity){
+    public T create(T entity){
         entityManager.persist(entity);
+        return entity;
     }
 
     @Transactional
@@ -32,5 +35,15 @@ public abstract class AbstractRepository<T> {
     public void delete (T entity){
         entityManager.remove(entity);
     }
+
+    @Transactional
+    public List<T> getAll(Class<T> entityClass) {
+        TypedQuery<T> query = entityManager.createQuery("from " + entityClass.getName(), entityClass);
+        return query.getResultList();
+    }
+
+
+
+
 
 }
