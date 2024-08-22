@@ -2,7 +2,11 @@ package org.example.services;
 
 import org.example.dto.BusDTO;
 
+import java.util.List;
+
 public interface BusService {
-    void addBus (BusDTO busDTO);
+    BusDTO addBus (BusDTO busDTO);
     BusDTO getBusById(int id);
+    List<BusDTO> findAll();
+
 }

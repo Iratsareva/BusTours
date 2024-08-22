@@ -1,13 +1,13 @@
 package org.example.services;
 
-import org.example.dto.DriverDTO;
 import org.example.dto.TripDTO;
 
 import java.util.List;
 
 public interface TripService {
-    void addTrip (TripDTO tripDTO);
+    TripDTO addTrip (TripDTO tripDTO);
     TripDTO getTripById (int id);
-    List<DriverDTO> findDriverToTrip (TripDTO tripDTO);
+    List<TripDTO> findAll();
+//    List<DriverDTO> findDriverToTrip (TripDTO tripDTO);
 
 }
