@@ -3,6 +3,7 @@ package org.example.dto;
 import java.time.LocalDate;
 
 public class PassengerDTO {
+    public Integer id;
     public String name;
     public String surname;
     public String  patronymic;
@@ -10,12 +11,21 @@ public class PassengerDTO {
     public String passportBirthCertificate;
 
     public PassengerDTO(){}
-    public PassengerDTO(String name, String surname, String patronymic, LocalDate birthday, String passportBirthCertificate) {
+    public PassengerDTO( Integer id, String name, String surname, String patronymic, LocalDate birthday, String passportBirthCertificate) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
         this.birthday = birthday;
         this.passportBirthCertificate = passportBirthCertificate;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

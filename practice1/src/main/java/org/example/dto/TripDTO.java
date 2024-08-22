@@ -1,8 +1,5 @@
 package org.example.dto;
 
-import org.example.domain.Bus;
-import org.example.domain.Driver;
-import org.example.domain.Tour;
 import org.example.domain.TripStatus;
 
 import java.time.LocalDate;

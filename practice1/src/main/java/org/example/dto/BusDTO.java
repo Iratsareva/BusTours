@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 
 public class BusDTO {
+    public Integer id;
     public String mark;
     public String numberBus;
     public Integer numberSeats;
@@ -12,12 +13,21 @@ public class BusDTO {
 
     protected BusDTO (){}
 
-    public BusDTO(String mark, String numberBus, Integer numberSeats, String classBus, LocalDate year) {
+    public BusDTO(Integer id, String mark, String numberBus, Integer numberSeats, String classBus, LocalDate year) {
+        this.id = id;
         this.mark = mark;
         this.numberBus = numberBus;
         this.numberSeats = numberSeats;
         this.classBus = classBus;
         this.year = year;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getMark() {

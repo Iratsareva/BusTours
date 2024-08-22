@@ -1,6 +1,7 @@
 package org.example.dto;
 
 public class TourDTO {
+    public Integer id;
     public String nameTour;
     public String description;
     public String itinerary;
@@ -9,13 +10,22 @@ public class TourDTO {
     public String destination;
 
     public TourDTO(){}
-    public TourDTO(String nameTour, String description, String itinerary, int lengthTour, int price, String destination) {
+    public TourDTO( Integer id, String nameTour, String description, String itinerary, int lengthTour, int price, String destination) {
+        this.id = id;
         this.nameTour = nameTour;
         this.description = description;
         this.itinerary = itinerary;
         this.lengthTour = lengthTour;
         this.price = price;
         this.destination = destination;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNameTour() {

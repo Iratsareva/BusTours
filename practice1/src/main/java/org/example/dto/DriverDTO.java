@@ -3,6 +3,7 @@ package org.example.dto;
 import java.time.LocalDate;
 
 public class DriverDTO {
+    public Integer id;
     public String name;
     public String surname;
     public String patronymic;
@@ -13,7 +14,8 @@ public class DriverDTO {
     public String category;
 
     protected DriverDTO(){}
-    public DriverDTO(String name, String surname, String patronymic, LocalDate birthday, String passport, String driverLicense, LocalDate dateStartDriverLicense, String category) {
+    public DriverDTO( Integer id, String name, String surname, String patronymic, LocalDate birthday, String passport, String driverLicense, LocalDate dateStartDriverLicense, String category) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
@@ -22,6 +24,14 @@ public class DriverDTO {
         this.driverLicense = driverLicense;
         this.dateStartDriverLicense = dateStartDriverLicense;
         this.category = category;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
