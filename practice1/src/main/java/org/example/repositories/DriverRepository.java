@@ -8,11 +8,8 @@ import java.util.List;
 
 @Repository
 public interface DriverRepository  {
-
     Driver findDriverByTrip(Integer tripId);
-
     Driver create(Driver driver);
     Driver findById(Class<Driver> driverClass, int id);
     List<Driver> getAll(Class<Driver> driverClass);
-
 }

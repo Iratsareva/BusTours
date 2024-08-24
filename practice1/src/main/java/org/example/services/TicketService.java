@@ -10,8 +10,6 @@ public interface TicketService {
     TicketDTO getTicketById(int id);
     List<TicketDTO> findAll();
 
-    List<TicketDTO> findTicketsByTrip(int idTrip);
-
     Boolean freeTicketsInTrip (int idTrip);
 
     TicketDTO buyingTicketByTrip (int idTrip, int idPassenger);

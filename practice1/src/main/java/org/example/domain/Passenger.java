@@ -11,16 +11,16 @@ public class Passenger extends BaseEntity{
     private String surname;
     private String  patronymic;
     private LocalDate birthday;
-    private String passportBirthCertificate;
+    private String identificationDocument;
 
     private Set<Ticket> tickets;
 
-    public Passenger(String name, String surname, String patronymic, LocalDate birthday, String passportBirthCertificate) {
+    public Passenger(String name, String surname, String patronymic, LocalDate birthday, String identificationDocument) {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
         this.birthday = birthday;
-        this.passportBirthCertificate = passportBirthCertificate;
+        this.identificationDocument = identificationDocument;
     }
 
     protected Passenger(){}
@@ -61,12 +61,12 @@ public class Passenger extends BaseEntity{
     }
 
 
-    @Column(name = "passport_birth_certificate", length = 10)
-    public String getPassportBirthCertificate() {
-        return passportBirthCertificate;
+    @Column(name = "identification_document", length = 10)
+    public String getIdentificationDocument() {
+        return identificationDocument;
     }
-    public void setPassportBirthCertificate(String passportBirthCertificate) {
-        this.passportBirthCertificate = passportBirthCertificate;
+    public void setIdentificationDocument(String identificationDocument) {
+        this.identificationDocument = identificationDocument;
     }
 
 

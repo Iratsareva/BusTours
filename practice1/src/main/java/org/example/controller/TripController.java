@@ -27,8 +27,4 @@ public class TripController {
         return tripService.findAll();
     }
 
-//    @GetMapping("/DriverToTrip")
-//    public List<DriverDTO> findDriverToTrip(@PathVariable TripDTO tripDTO){
-//        return tripService.findDriverToTrip(tripDTO);
-//    }
 }

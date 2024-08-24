@@ -98,28 +98,4 @@ public class TourServiceImpl implements TourService {
         return findTripList.stream().map(trip -> modelMapper.map(trip, TripDTO.class)).toList();
 
     }
-
-
-
-
-
-
-
-
-
-
-//    @Override
-//    public List<TourDTO> getRecommendationsTour(PassengerDTO passengerDTO) {
-//        Passenger passenger = modelMapper.map(passengerDTO, Passenger.class);
-//        return tourRepository.findToursByPassengerId(passenger.getId()).stream().map((tour) -> modelMapper.map(tour,TourDTO.class)).toList();
-//    }
-//
-//    @Override
-//    public List<TourDTO> getTourForTourGroup(TourGroupDTO tourGroupDTO) {
-//        TourGroup tourGroup = modelMapper.map(tourGroupDTO, TourGroup.class);
-//       Integer countC = tourGroupRepository.countPassengersBefore18InTourGroup(tourGroup.getId());
-//       Integer countP = tourGroupRepository.countPassengersUnder18InTourGroup(tourGroup.getId());
-//
-//        return tourRepository.findToursByTourGroup(countC, countP).stream().map((tour) -> modelMapper.map(tour, TourDTO.class)).toList();
-//    }
 }

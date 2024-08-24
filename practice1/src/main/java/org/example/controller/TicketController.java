@@ -29,11 +29,6 @@ public class TicketController {
         return ticketService.findAll();
     }
 
-    //удалить
-    @GetMapping("/find/{id}")
-    Iterable<TicketDTO> findTicketsByTrip(@PathVariable int id){
-        return ticketService.findTicketsByTrip(id);
-    }
 
 
     @GetMapping("/freeTicketsInTrip/{id}")
@@ -46,8 +41,11 @@ public class TicketController {
     @GetMapping("/buy/{idPassenger}/{idTrip}")
     ResponseEntity<String> buyingTicketByTrip (@PathVariable int idTrip,
                                                @PathVariable int idPassenger){
+        Boolean checkFreeTickets = ticketService.freeTicketsInTrip(idTrip);
         TicketDTO ticketDTO = ticketService.buyingTicketByTrip(idTrip, idPassenger);
-        if(ticketDTO == null) return ResponseEntity.ok("На этот рейс уже нельзя купить билеты");
+
+        if(!checkFreeTickets) return ResponseEntity.ok("Наэтот рейс уже нет билетов");
+        else if(ticketDTO == null) return ResponseEntity.ok("На этот рейс уже нельзя купить билеты");
         else return ResponseEntity.ok("Билет на рейс " + idTrip + " успешно оформлен! \nНомер билета " + ticketDTO.getId() + " сумма к оплате: " + ticketDTO.getPrice());
     }
 }

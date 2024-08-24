@@ -41,9 +41,4 @@ public abstract class AbstractRepository<T> {
         TypedQuery<T> query = entityManager.createQuery("from " + entityClass.getName(), entityClass);
         return query.getResultList();
     }
-
-
-
-
-
 }

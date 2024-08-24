@@ -51,17 +51,9 @@ public class TicketServiceImpl implements TicketService {
     }
 
 
-    //удалить
-    @Override
-    @Transactional
-    public List<TicketDTO> findTicketsByTrip(int idTrip){
-        List<Ticket> ticketList = ticketRepository.TicketsTrip(idTrip);
-        return ticketList.stream().map(ticket -> modelMapper.map(ticket, TicketDTO.class)).toList();
-    }
 
 
     //есть ли свободные билеты на Рейс
-    //удалить
     @Override
     @Transactional
     public Boolean freeTicketsInTrip (int idTrip){

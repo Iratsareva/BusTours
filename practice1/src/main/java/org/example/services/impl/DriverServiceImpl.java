@@ -56,37 +56,29 @@ public class DriverServiceImpl implements DriverService {
     @Transactional
     public List<DriverDTO> findFreeDriversByTripId(Integer tripId) {
         List<Trip> tripList = tripRepository.getAll(Trip.class);
+
         Trip trip = tripRepository.findById(Trip.class, tripId);
         if(trip == null){
             throw new PasNotFoundException("Такого рейса не существует");
         }
         Tour tour = tourRepository.findTourByTrip(tripId);
+
         List<Driver> findDrivers = new ArrayList<>();
 
         List<Driver> drivers =  driverRepository.getAll(Driver.class);
 
-        //занятые водители
-        List<Driver> busyDrivers = new ArrayList<>();
+
+
         for (Trip t : tripList){
             if (t.getEndDate().isAfter(trip.getStartDate()) || t.getEndDate().isEqual(trip.getStartDate())){
                 if (t.getStartDate().isBefore(trip.getEndDate()) || t.getStartDate().isEqual(trip.getStartDate()) ){
-                    busyDrivers.add(driverRepository.findDriverByTrip(t.getId()));
-                    //свободные
-                    drivers.remove(driverRepository.findDriverByTrip(t.getId()));
+                    if( t.getDriver() != null) {
+
+                        drivers.remove(driverRepository.findDriverByTrip(t.getId()));
+                    }
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
         //если продолжительность маршрута больше 10 дней стаж видителя должен быть больше 10 лет

@@ -16,7 +16,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class PaymentServiceImpl implements PaymentService {
+public class PaymentTicketServiceImpl implements PaymentService {
 
     @Autowired
     private PaymentRepository paymentRepository;
@@ -57,9 +57,6 @@ public class PaymentServiceImpl implements PaymentService {
         return paymentRepository.getAll(Payment.class).stream().map(payment ->
                 modelMapper.map(payment, PaymentDTO.class)).toList();
     }
-
-
-
 
 
     @Override

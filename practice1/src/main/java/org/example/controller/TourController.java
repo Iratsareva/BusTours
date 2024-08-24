@@ -29,25 +29,9 @@ public class TourController {
         return tourService.findAll();
     }
 
-
     @GetMapping("/find")
     Iterable<TripDTO> findTourByDestination (@RequestParam String destination,
                                              @RequestParam Integer numberPassengers ){
-
-        //изменить тур на трип
-        List<TripDTO> tripDTOS = tourService.findTourByParameters(destination,numberPassengers );
-
-        return tripDTOS;
+        return tourService.findTourByParameters(destination,numberPassengers );
     }
-
-//    @GetMapping("/recommendation")
-//    public List<TourDTO> getRecommendationsTour(@PathVariable PassengerDTO passengerDTO){
-//        return tourService.getRecommendationsTour(passengerDTO);
-//    }
-//
-//
-//    @GetMapping("/tourTourGroup")
-//    public List<TourDTO> getTourForTourGroup(@PathVariable TourGroupDTO tourGroupDTO){
-//        return tourService.getTourForTourGroup(tourGroupDTO);
-//    }
 }
